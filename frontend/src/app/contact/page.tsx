@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <>
       <Navbar page="contact" />
-      <div className="bg-gray-100 py-16">
+      <div className="bg-gray-100 py-16 min-h-screen">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-semibold text-gray-800 mb-12">
             Contact Me
@@ -29,7 +29,16 @@ export default function ContactPage() {
           </div>
           <div className="flex text-lg text-gray-600 mb-8">
             <FontAwesomeIcon icon={faMailBulk} className="w-6" />
-            <p className="pl-2">Email: yugantha1468@gmail.com</p>
+            <p className="pl-2">
+              Email:{' '}
+              <a
+                className="text-blue-500 hover:underline"
+                href="mailto:yugantha1468@gmail.com"
+                target="_blank"
+              >
+                yugantha1468@gmail.com
+              </a>
+            </p>
           </div>
         </div>
       </div>

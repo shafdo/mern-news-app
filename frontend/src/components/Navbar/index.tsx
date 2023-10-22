@@ -54,7 +54,7 @@ const Navbar = ({ page }: NavbarProps) => {
               About
             </Link>
           </li>
-          <li>
+          <li className={`${page == 'login' ? 'border-b-2' : ''}`}>
             <Link href="/login" className="text-white hover:text-gray-200">
               Admin Login
             </Link>
