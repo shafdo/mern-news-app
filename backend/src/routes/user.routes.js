@@ -1,6 +1,8 @@
 import express from 'express';
 import { validateData } from '@/middleware/joiValidate';
 import { userCreateSchema, userUpdateSchema } from '@/validations/user';
+import { authorize } from '@/middleware/authorize';
+
 import {
   createUser,
   updateUser,
@@ -10,7 +12,7 @@ import {
 
 const userRouter = express.Router();
 
-userRouter.get('/', getUsers);
+userRouter.get('/', authorize[0], getUsers);
 userRouter.get('/:id', getUser);
 userRouter.post('/', validateData(userCreateSchema), createUser);
 userRouter.put('/:id', validateData(userUpdateSchema), updateUser);
