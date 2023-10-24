@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 type loginProps = {
-  email: string;
+  username: string;
   password: string;
 };
 
@@ -19,13 +19,11 @@ export default function LoginPage() {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      username: '',
       password: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email('Invalid email address')
-        .required('Please enter your email address.'),
+      username: Yup.string().required('Please enter your username.'),
       password: Yup.string().required('Please enter your password.'),
     }),
     onSubmit: (values) => handleLogin(values),
@@ -47,27 +45,27 @@ export default function LoginPage() {
               >
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="username"
                     className="block mb-2 text-lg font-medium"
                   >
-                    Email:
+                    Username:
                   </label>
                   <input
-                    type="email"
-                    id="email"
+                    type="text"
+                    id="username"
                     className="bg-gray-50 border border-gray-300 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                    placeholder="me@example.com"
-                    value={formik.values.email}
+                    placeholder="..."
+                    value={formik.values.username}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.errors.email && formik.touched.email ? (
+                  {formik.errors.username && formik.touched.username ? (
                     <div className="error text-red-400 p-4">
                       <FontAwesomeIcon
                         className="mr-4 text-xl"
                         icon={faCircleExclamation}
                       />
-                      {formik.errors.email}
+                      {formik.errors.username}
                     </div>
                   ) : (
                     ''
@@ -83,7 +81,7 @@ export default function LoginPage() {
                   <input
                     type="password"
                     id="password"
-                    placeholder="••••••••"
+                    placeholder="..."
                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                     value={formik.values.password}
                     onChange={formik.handleChange}

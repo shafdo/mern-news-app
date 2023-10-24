@@ -2,7 +2,7 @@
 
 import { useParams, redirect } from 'next/navigation';
 
-export default function Page() {
+export default function NewsPage() {
   const { id } = useParams();
 
   return (
@@ -22,14 +22,16 @@ export default function Page() {
           <hr />
         </div>
         <div id="article-body" className="my-16">
-          <p className="text-gray-700 leading-relaxed">
-            Your article content goes here. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit...
+          <p className="text-gray-700 leading-relaxed text-xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+            nulla tenetur voluptatem consequuntur repellendus laboriosam quae
+            atque, vero fugit tempore velit distinctio ullam beatae harum non
+            optio eaque! Et, nesciunt.
           </p>
         </div>
         <div id="article-footer" className="mt-6 flex items-center">
           <img
-            src="author-avatar.jpg" // Replace with author's avatar image URL
+            src="https://avatars.githubusercontent.com/u/30050702?s=48&v=4"
             alt="Author"
             className="w-10 h-10 rounded-full mr-4"
           />
