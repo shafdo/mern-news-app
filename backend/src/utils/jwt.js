@@ -1,7 +1,8 @@
 import jsonwebtoken from 'jsonwebtoken';
+import config from '../config';
 
 export const generateJWT = async (jsonPayload) => {
-  const token = await jsonwebtoken.sign(jsonPayload, process.env.JWT_SECRET, {
+  const token = await jsonwebtoken.sign(jsonPayload, config.JWT_SECRET, {
     expiresIn: '1d',
   });
 
@@ -10,7 +11,7 @@ export const generateJWT = async (jsonPayload) => {
 
 export const decodedJWT = (token) => {
   try {
-    return jsonwebtoken.verify(token, process.env.JWT_SECRET);
+    return jsonwebtoken.verify(token, config.JWT_SECRET);
   } catch (error) {
     return 0;
   }

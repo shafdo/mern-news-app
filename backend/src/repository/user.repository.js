@@ -57,5 +57,15 @@ export const getUserRepo = async (uid) => {
   }
 };
 
-export const getUsersRepo = async (filter) =>
-  User.find(filter).select('-password');
+export const getUsersRepo = async (filter, isPasswordVisible = false) => {
+  const user = User.find(filter);
+  if (!isPasswordVisible) {
+    return user.select('-password');
+  }
+  return user;
+};
+
+export const findUserByUsernameAndRole = async ({ username, role }) => {
+  const user = await User.findOne({ username, role });
+  return user;
+};
