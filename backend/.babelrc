@@ -1,4 +1,20 @@
 {
   "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@": "./src",
+          "@models": "./src/models",
+          "@utils": "./src/utils",
+          "@middleware": "./src/middleware",
+          "@repository": "./src/repository",
+          "@controllers": "./src/controllers",
+          "@validations": "./src/validations"
+        }
+      }
+    ]
+  ]
 }
