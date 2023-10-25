@@ -14,7 +14,8 @@
     "babel-node": "^0.0.1-security",
     "babel-plugin-module-resolver": "^5.0.0",
     "bun-types": "latest",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
