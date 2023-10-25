@@ -17,7 +17,7 @@ class Base {
 
   static get values() {
     return {
-      PORT: process.env.PORT ?? 3000,
+      PORT: process.env.PORT ?? 4444,
       JWT_SECRET: process.env.JWT_SECRET,
       cookieConfig: {
         secure: process.env.NODE_ENV === 'production',

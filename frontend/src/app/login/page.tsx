@@ -1,11 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { Navbar } from '@/components';
+import { NavbarPublic, Toast } from '@/components';
+import { ToastContainer } from 'react-toastify';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import axiosInstance from '@/config/axios';
+import Swal from 'sweetalert2';
+import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 type loginProps = {
   username: string;
@@ -13,8 +18,26 @@ type loginProps = {
 };
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const handleLogin = (values: loginProps) => {
-    console.log(values);
+    axiosInstance
+      .post('/login', { ...values, role: 0 })
+      .then((res) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: res.data.message,
+        }).then(() => {
+          router.push('/admin/dashboard');
+        });
+      })
+      .catch((error) => {
+        if (error.code == 'ERR_NETWORK')
+          return Toast('Cannot connect with backend API.', 'error', {});
+
+        Toast(error.response.data.message, 'error', {});
+      });
   };
 
   const formik = useFormik({
@@ -31,7 +54,7 @@ export default function LoginPage() {
 
   return (
     <>
-      <Navbar page="login" />
+      <NavbarPublic page="login" />
       <section className="bg-gray-50">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:w-1/2 xl:p-0">
@@ -110,6 +133,7 @@ export default function LoginPage() {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   );
 }

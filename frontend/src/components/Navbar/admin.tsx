@@ -1,13 +1,22 @@
 'use client';
 
+import { removeCookie } from '@/utils/cookie';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-type NavbarProps = {
+type NavbarAdminProps = {
   page: string;
 };
 
-const Navbar = ({ page }: NavbarProps) => {
+const NavbarAdmin = ({ page }: NavbarAdminProps) => {
+  const router = useRouter();
+
+  const logout = () => {
+    removeCookie('auth');
+    router.push('/');
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -49,20 +58,34 @@ const Navbar = ({ page }: NavbarProps) => {
               Home
             </Link>
           </li>
+          <li className={`${page == 'login' ? 'border-b-2' : ''}`}>
+            <Link
+              href="/admin/dashboard"
+              className="text-white hover:text-gray-200"
+            >
+              Admin Dashboard
+            </Link>
+          </li>
+          <li className={`${page == 'contact' ? 'border-b-2' : ''}`}>
+            <Link
+              href="/news/create"
+              className="text-white hover:text-gray-200"
+            >
+              Create News
+            </Link>
+          </li>
           <li className={`${page == 'about' ? 'border-b-2' : ''}`}>
             <Link href="/about" className="text-white hover:text-gray-200">
               About
             </Link>
           </li>
-          <li className={`${page == 'login' ? 'border-b-2' : ''}`}>
-            <Link href="/login" className="text-white hover:text-gray-200">
-              Admin Login
-            </Link>
-          </li>
-          <li className={`${page == 'contact' ? 'border-b-2' : ''}`}>
-            <Link href="/contact" className="text-white hover:text-gray-200">
-              Contact
-            </Link>
+          <li>
+            <span
+              className="text-white hover:text-gray-200 cursor-pointer"
+              onClick={logout}
+            >
+              Log out
+            </span>
           </li>
         </ul>
       </div>
@@ -75,23 +98,29 @@ const Navbar = ({ page }: NavbarProps) => {
           </Link>
         </li>
         <li className="mb-4">
+          <Link
+            href="/admin/dashboard"
+            className="text-white hover:text-gray-200"
+          >
+            Admin Dashboard
+          </Link>
+        </li>
+        <li className="mb-4">
+          <Link href="/news/create" className="text-white hover:text-gray-200">
+            Create News
+          </Link>
+        </li>
+        <li className="mb-4">
           <Link href="/about" className="text-white hover:text-gray-200">
             About
           </Link>
         </li>
-        <li className="mb-4">
-          <Link href="/login" className="text-white hover:text-gray-200">
-            Admin Login
-          </Link>
-        </li>
-        <li className="mb-4">
-          <Link href="/contact" className="text-white hover:text-gray-200">
-            Contact
-          </Link>
+        <li className="mb-4" onClick={logout}>
+          Log out
         </li>
       </ul>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavbarAdmin;

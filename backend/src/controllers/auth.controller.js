@@ -28,5 +28,8 @@ export const login = async (req, res) => {
 
   // Append auth cookie
   res.cookie('auth', authToken, config.cookieConfig);
-  return res.status(200).json({ data: 'Logged in successfully.' });
+  return response({
+    res,
+    message: 'Logged in successfully.',
+  });
 };
