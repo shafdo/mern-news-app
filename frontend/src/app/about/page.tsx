@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { Jumbotron, NavbarPublic } from '@/components';
+import { Jumbotron, Navbar } from '@/components';
 
 export default function AboutPage() {
   return (
     <>
-      <NavbarPublic page="about" />
+      <Navbar page="about" />
       <div className="bg-gray-100 py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-semibold text-gray-800 mb-6">
