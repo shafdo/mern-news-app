@@ -148,6 +148,17 @@ export default function LoginPage() {
                   Log in
                 </button>
               </form>
+              <br />
+              <p className="text-center">
+                Don&#39;t have an account?. Click to{' '}
+                <Link
+                  href="/register/admin"
+                  className="border-b-2 border-black"
+                >
+                  here
+                </Link>{' '}
+                create a new admin account.
+              </p>
             </div>
           </div>
         </div>
