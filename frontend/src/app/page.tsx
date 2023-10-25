@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { Jumbotron, NavbarPublic } from '@/components';
+import { Jumbotron, Navbar } from '@/components';
 
 export default function HomePage() {
   return (
     <>
-      <NavbarPublic page="home" />
+      <Navbar page="home" />
       <Jumbotron
         heading="News App"
         subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
