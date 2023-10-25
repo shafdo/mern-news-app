@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Jumbotron, Navbar, Table } from '@/components';
+import { Jumbotron, NavbarAdmin, NavbarPublic, Table } from '@/components';
 
 export default function AdminDashboard() {
   const headings = ['Header 1', 'Header 2', 'Header 4'];
@@ -17,7 +17,7 @@ export default function AdminDashboard() {
 
   return (
     <>
-      <Navbar page="admin-dashboard" />
+      <NavbarAdmin page="admin-dashboard" />
       <div className="my-16">
         <p className="text-center text-5xl">Admin Dashboard</p>
       </div>

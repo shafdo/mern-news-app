@@ -23,5 +23,5 @@ app.use('/api', apiRoutes);
 connectDB();
 
 app.listen(config.PORT, () => {
-  console.log('Server is listening on port 3000');
+  console.log(`Server is listening on port ${config.PORT}`);
 });

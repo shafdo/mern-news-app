@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone, faMailBulk } from '@fortawesome/free-solid-svg-icons';
-import { Jumbotron, Navbar } from '@/components';
+import { Jumbotron, NavbarPublic } from '@/components';
 
 export default function ContactPage() {
   return (
     <>
-      <Navbar page="contact" />
+      <NavbarPublic page="contact" />
       <div className="bg-gray-100 py-16 min-h-screen">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-semibold text-gray-800 mb-12">
