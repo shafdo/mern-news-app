@@ -4,7 +4,6 @@
   "scripts": {
     "start": "babel-node ./src/server.js",
     "dev": "nodemon --exec babel-node ./src/server.js",
-    "build": "tsc",
     "test": "jest --watchAll"
   },
   "devDependencies": {
