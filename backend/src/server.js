@@ -7,13 +7,19 @@ import connectDB from './database';
 
 const app = express();
 
+// Allowed domains (origins)
+const whitelist = [
+  'https://derana-staging.shalinda.dev',
+  'http://localhost:3000',
+];
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: true,
+    origin: whitelist,
     credentials: true,
   })
 );
