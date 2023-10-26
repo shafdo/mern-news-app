@@ -9,6 +9,7 @@ class Base {
       PORT: Joi.number().optional(),
       JWT_SECRET: Joi.string().required(),
       cookieConfig: Joi.object({
+        secure: Joi.boolean().required(),
         sameSite: Joi.string().required(),
         maxAge: Joi.number().required(),
       }).required(),
@@ -20,6 +21,7 @@ class Base {
       PORT: process.env.PORT ?? 4444,
       JWT_SECRET: process.env.JWT_SECRET,
       cookieConfig: {
+        secure: false,
         sameSite: 'None',
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
       },
