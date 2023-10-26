@@ -25,6 +25,8 @@ export default function LoginPage() {
     axiosInstance
       .post('/login', { ...values, role: 0 })
       .then((res) => {
+        console.log(res);
+
         Swal.fire({
           icon: 'success',
           title: 'Success',
