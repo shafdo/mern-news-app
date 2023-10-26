@@ -28,7 +28,7 @@ export default function LoginPage() {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: res.data.data,
+          text: res.data.message,
         }).then(() => {
           router.push('/admin/dashboard');
         });
