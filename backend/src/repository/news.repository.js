@@ -61,7 +61,7 @@ export const deleteNewsRepo = async (newsId, data) => {
 
 export const getNewsRepo = async (uid) => {
   try {
-    const news = await User.findById(uid);
+    const news = await News.findOne({ _id: uid });
     return {
       status: 200,
       data: news,
