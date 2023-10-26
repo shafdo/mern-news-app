@@ -10,6 +10,7 @@ class Base {
       JWT_SECRET: Joi.string().required(),
       cookieConfig: Joi.object({
         secure: Joi.boolean().required(),
+        httpOnly: Joi.boolean().required(),
         maxAge: Joi.number().required(),
       }).required(),
     };
@@ -21,6 +22,7 @@ class Base {
       JWT_SECRET: process.env.JWT_SECRET,
       cookieConfig: {
         secure: process.env.NODE_ENV === 'production',
+        httpOnly: process.env.NODE_ENV === 'production',
         maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
       },
     };
